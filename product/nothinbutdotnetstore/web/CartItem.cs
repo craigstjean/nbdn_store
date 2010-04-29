@@ -1,6 +1,6 @@
-using nothinbutdotnetstore.model;
+﻿using nothinbutdotnetstore.model;
 
-namespace nothinbutdotnetstore.web.core
+namespace nothinbutdotnetstore.web
 {
     public class CartItem
     {

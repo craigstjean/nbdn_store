@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using nothinbutdotnetstore.model;
+using nothinbutdotnetstore.tasks;
+using nothinbutdotnetstore.web;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.tests.web
@@ -9,7 +11,7 @@ namespace nothinbutdotnetstore.tests.web
     {
         Request request;
 
-        public DefaultCartTasks(Request request, CartTasks cart_tasks;)
+        public DefaultCartTasks(Request request, CartTasks cart_tasks)
         {
             this.request = request;
         }
@@ -19,7 +21,7 @@ namespace nothinbutdotnetstore.tests.web
             throw new NotImplementedException();
         }
 
-        public void addItem(CartItem cart_item)
+        public void add_item(CartItem cart_item)
         {
             throw new NotImplementedException();
         }

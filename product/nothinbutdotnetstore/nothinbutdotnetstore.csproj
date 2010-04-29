@@ -52,6 +52,7 @@
     <Compile Include="infrastructure\Mapper.cs" />
     <Compile Include="infrastructure\MapperRegistry.cs" />
     <Compile Include="model\Department.cs" />
+    <Compile Include="tasks\CartTasks.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="model\Product.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="web\application\ViewProductsInDepartment.cs" />
     <Compile Include="web\application\ViewSubDepartmentsInDepartment.cs" />
     <Compile Include="web\application\AddProductToCart.cs" />
+    <Compile Include="web\CartItem.cs" />
     <Compile Include="web\core\ApplicationCommand.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\DefaultCommandRegistry.cs" />

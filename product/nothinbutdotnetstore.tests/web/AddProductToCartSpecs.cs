@@ -4,6 +4,7 @@ using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.mocking.rhino;
 using developwithpassion.bdddoc.core;
 using nothinbutdotnetstore.model;
+using nothinbutdotnetstore.tasks;
 using nothinbutdotnetstore.tests.web;
 using nothinbutdotnetstore.web.application;
 using Rhino.Mocks;
@@ -25,7 +26,7 @@ namespace nothinbutdotnetstore.web.core
              {
                  request = the_dependency<Request>();
                  responseEngine = the_dependency<ResponseEngine>();
-                 default_cart_manager = the_dependency<CartTasks>();
+                 cart_tasks = the_dependency<CartTasks>();
                  
                  cart_item = new CartItem(new Product(), 5);
 
@@ -40,13 +41,13 @@ namespace nothinbutdotnetstore.web.core
         
              it should_ask_cartTask_to_add_item = () =>
              {
-                 default_cart_manager.received(x => x.addItem(cart_item));   
+                 cart_tasks.received(x => x.add_item(cart_item));   
              };
 
              static IEnumerable<CartItem> results;
              static Request request;
              static ResponseEngine responseEngine;
-             static CartTasks default_cart_manager;
+             static CartTasks cart_tasks;
              static CartItem cart_item;
          }
      }
