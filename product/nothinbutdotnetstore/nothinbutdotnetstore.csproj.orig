@@ -52,23 +52,26 @@
     <Compile Include="infrastructure\DefaultMapperRegistry.cs" />
     <Compile Include="infrastructure\Mapper.cs" />
     <Compile Include="infrastructure\MapperRegistry.cs" />
+<<<<<<< HEAD
     <Compile Include="infrastructure\MapperType.cs" />
     <Compile Include="infrastructure\MissingMapper.cs" />
-    <Compile Include="tasks\CatalogTasks.cs" />
-    <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
-    <Compile Include="web\application\AddItemToShoppingCart.cs" />
+=======
     <Compile Include="model\Department.cs" />
     <Compile Include="tasks\CartTasks.cs" />
+>>>>>>> pass2
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="model\Product.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
+<<<<<<< HEAD
+    <Compile Include="web\application\AddItemToShoppingCart.cs" />
+=======
     <Compile Include="web\application\CartManager.cs" />
+>>>>>>> pass2
     <Compile Include="web\application\DepartmentNameParser.cs" />
     <Compile Include="web\application\mappers\DepartmentMapper.cs" />
     <Compile Include="web\application\PayloadKeys.cs" />
     <Compile Include="web\application\ViewMainDepartments.cs" />
     <Compile Include="web\application\ViewProductsInDepartment.cs" />
-
     <Compile Include="web\application\ViewSubDepartmentsInDepartment.cs" />
     <Compile Include="web\application\AddProductToCart.cs" />
     <Compile Include="web\CartItem.cs" />
@@ -88,14 +91,23 @@
     <Compile Include="web\core\RequestCommand.cs" />
     <Compile Include="web\core\RequestFactory.cs" />
     <Compile Include="web\core\ResponseEngine.cs" />
+<<<<<<< HEAD
+    <Compile Include="web\model\Department.cs" />
+    <Compile Include="web\model\Product.cs" />
+    <Compile Include="WelcomeGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="model\" />
+    <Folder Include="web\core\stubs\" />
+=======
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\stubs\StubResponseEngine.cs" />
     <Compile Include="web\application\mappers\ProductMapper.cs" />
     <Compile Include="WelcomeGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="model\" />
-    <Folder Include="web\core\stubs\" />
+    <Folder Include="web\model\" />
+>>>>>>> pass2
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

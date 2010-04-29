@@ -74,8 +74,12 @@
     <Compile Include="infrastructure\DefaultMapperRegistrySpecs.cs" />
     <Compile Include="utility\empty_test_fixture_for_test_driven.cs" />
     <Compile Include="utility\ObjectMother.cs" />
+<<<<<<< HEAD
+    <Compile Include="web\AddItemToShoppingCartSpecs.cs" />
+=======
     <Compile Include="web\AddProductToCartSpecs.cs" />
     <Compile Include="web\DefaultCartTasks.cs" />
+>>>>>>> pass2
     <Compile Include="web\CommandRegistrySpecs.cs" />
     <Compile Include="web\DepartmentMapperSpecs.cs" />
     <Compile Include="web\PayloadKeySpecs.cs" />
