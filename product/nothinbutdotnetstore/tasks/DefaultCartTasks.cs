@@ -1,11 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using nothinbutdotnetstore.model;
-using nothinbutdotnetstore.tasks;
 using nothinbutdotnetstore.web;
 using nothinbutdotnetstore.web.core;
 
-namespace nothinbutdotnetstore.tests.web
+namespace nothinbutdotnetstore.tasks
 {
     public class DefaultCartTasks : CartTasks
     {
