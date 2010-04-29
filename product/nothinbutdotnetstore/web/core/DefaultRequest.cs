@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Specialized;
 using nothinbutdotnetstore.infrastructure;
 
@@ -6,8 +5,8 @@ namespace nothinbutdotnetstore.web.core
 {
     public class DefaultRequest : Request
     {
-        MapperRegistry mapper_registry;
-        NameValueCollection request_data;
+        readonly MapperRegistry mapper_registry;
+        readonly NameValueCollection request_data;
 
         public DefaultRequest(MapperRegistry mapper_registry, NameValueCollection request_data)
         {

@@ -4,8 +4,8 @@ namespace nothinbutdotnetstore.web.core
 {
     public class DefaultRequestCommand : RequestCommand
     {
-        Predicate<Request> request_specification;
-        ApplicationCommand application_command;
+        readonly ApplicationCommand application_command;
+        readonly Predicate<Request> request_specification;
 
         public DefaultRequestCommand(Predicate<Request> request_specification, ApplicationCommand application_command)
         {

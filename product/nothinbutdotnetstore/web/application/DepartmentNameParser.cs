@@ -4,7 +4,7 @@ namespace nothinbutdotnetstore.web.application
     {
         public static string parse(string url)
         {
-            int index = url.IndexOf("?dept=");
+            var index = url.IndexOf("?dept=");
             return url.Substring(index + 5);
         }
     }

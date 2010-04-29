@@ -11,5 +11,9 @@ namespace nothinbutdotnetstore.web.application
             public static readonly PayloadKey<DateTime> active_in_store_since = new PayloadKey<DateTime>("active_in_store_since");
             public static readonly PayloadKey<bool> is_active = new PayloadKey<bool>("is_active");
         }
+
+        public static class product
+        {
+        }
     }
 }

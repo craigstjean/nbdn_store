@@ -5,7 +5,7 @@ namespace nothinbutdotnetstore.web.core
 {
     public class PayloadKey<KeyValue>
     {
-        string key_name;
+        readonly string key_name;
 
         public PayloadKey(string key_name)
         {
@@ -19,7 +19,7 @@ namespace nothinbutdotnetstore.web.core
 
         public override string ToString()
         {
-            return this.key_name;
+            return key_name;
         }
 
         public KeyValue map_from(NameValueCollection collection)

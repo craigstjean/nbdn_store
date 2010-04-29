@@ -1,15 +1,17 @@
+using System;
 using System.Web;
-using nothinbutdotnetstore.web.core.stubs;
+using nothinbutdotnetstore.infrastructure;
 
 namespace nothinbutdotnetstore.web.core
 {
     public class RawRequestHandler : IHttpHandler
     {
-        FrontController front_controller;
-        RequestFactory request_factory;
+        readonly FrontController front_controller;
+        readonly RequestFactory request_factory;
 
-        public RawRequestHandler():this(new DefaultFrontController(),
-            new StubRequestFactory())
+        [Obsolete]
+        public RawRequestHandler() : this(new DefaultFrontController(),
+                                          new DefaultRequestFactory(new DefaultMapperRegistry(null)))
         {
         }
 

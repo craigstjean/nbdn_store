@@ -15,6 +15,5 @@ namespace nothinbutdotnetstore.web.application.mappers
                        is_special = PayloadKeys.department.is_active.map_from(input)
                    };
         }
-
     }
 }

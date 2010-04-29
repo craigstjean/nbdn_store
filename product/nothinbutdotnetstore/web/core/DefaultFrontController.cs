@@ -2,9 +2,9 @@ namespace nothinbutdotnetstore.web.core
 {
     public class DefaultFrontController : FrontController
     {
-        CommandRegistry command_registry;
+        readonly CommandRegistry command_registry;
 
-        public DefaultFrontController():this(new DefaultCommandRegistry())
+        public DefaultFrontController() : this(new DefaultCommandRegistry())
         {
         }
 
