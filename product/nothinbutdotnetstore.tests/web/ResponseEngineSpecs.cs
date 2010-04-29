@@ -23,7 +23,7 @@ namespace nothinbutdotnetstore.tests.web
 
              because b = () =>
              {
-                result = sut.display(view_model);
+                sut.display(view_model);
              };
 
              it should_setup_page_with_view_model = () =>
@@ -37,7 +37,7 @@ namespace nothinbutdotnetstore.tests.web
              };
 
              static object view_model;
-             static void result;
+             static object result;
          }
      }
  }

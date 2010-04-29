@@ -19,7 +19,7 @@ namespace nothinbutdotnetstore.tests.web
          }
 
          [Concern(typeof(AddItemToShoppingCart))]
-         public class when_observation_name : concern
+         public class when_adding_an_item_to_the_cart : concern
          {
              context c = () =>
              {

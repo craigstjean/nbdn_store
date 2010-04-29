@@ -6,7 +6,7 @@ namespace nothinbutdotnetstore.web.application
 {
     public class AddItemToShoppingCart : ApplicationCommand
     {
-        readonly CatalogTasks catalog_tasks;
+        CatalogTasks catalog_tasks;
 
         public AddItemToShoppingCart(CatalogTasks catalog_tasks)
         {
