@@ -20,8 +20,8 @@ namespace nothinbutdotnetstore.tests.infrastructure
          {
              context c = () =>
              {
-                 Dictionary<MapperType, object> mappers = new Dictionary<MapperType, object>();
-                 mappers.Add(new MapperType(typeof(string), typeof(DateTime)), an<Mapper<string, DateTime>>());
+                 IDictionary<Type, object> mappers = new Dictionary<Type, object>();
+                 mappers.Add(typeof(Mapper<string,DateTime>), an<Mapper<string, DateTime>>());
 
                  provide_a_basic_sut_constructor_argument(mappers);
              };
@@ -45,7 +45,7 @@ namespace nothinbutdotnetstore.tests.infrastructure
          {
              context c = () =>
              {
-                 Dictionary<MapperType, object> mappers = new Dictionary<MapperType, object>();
+                 IDictionary<MapperType, object> mappers = new Dictionary<MapperType, object>();
                  provide_a_basic_sut_constructor_argument(mappers);
              };
 
