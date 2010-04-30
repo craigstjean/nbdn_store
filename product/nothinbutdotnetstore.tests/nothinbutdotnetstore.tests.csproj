@@ -71,10 +71,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="examples\CalculatorSpecs.cs" />
-    <Compile Include="infrastructure\ContainerResolverSpecs.cs" />
+    <Compile Include="infrastructure\FrontControllerContainerResolverSpecs.cs" />
     <Compile Include="infrastructure\ContainerSpecs.cs" />
     <Compile Include="infrastructure\CustomContainerFrameworkSpecs.cs" />
     <Compile Include="infrastructure\DefaultMapperRegistrySpecs.cs" />
+    <Compile Include="infrastructure\RequestFactoryContainerResolverSpecs.cs" />
     <Compile Include="tasks\StartupSpecs.cs" />
     <Compile Include="utility\empty_test_fixture_for_test_driven.cs" />
     <Compile Include="utility\ObjectMother.cs" />

@@ -14,7 +14,7 @@ namespace nothinbutdotnetstore.web.core
 
         public Request create_a_request_from(HttpContext http_context)
         {
-            return new DefaultRequest(mapper_registry, http_context.Request.Params);
+            return new DefaultRequest(mapper_registry, http_context.Request.Params, http_context.Request.Url.AbsolutePath);
         }
     }
 }

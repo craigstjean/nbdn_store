@@ -14,11 +14,11 @@ namespace nothinbutdotnetstore.tests.web
     public class ViewSubDepartmentsInDepartmentsSpecs
     {
         public abstract class concern : observations_for_a_sut_with_a_contract<ApplicationCommand,
-                                            ViewSubDepartmentsInDepartment>
+                                            ViewSubDepartments>
         {
         }
 
-        [Concern(typeof (ViewSubDepartmentsInDepartment))]
+        [Concern(typeof (ViewSubDepartments))]
         public class when_displaying_the_list_of_the_sub_departments_in_department : concern
         {
             context c = () =>
@@ -31,7 +31,7 @@ namespace nothinbutdotnetstore.tests.web
 
 
                 request.Stub(x => x.map<Department>()).Return(department);
-                catalog_tasks.Stub(x => x.get_all_sub_departments_in_department(department)).Return(sub_departments);
+                catalog_tasks.Stub(x => x.get_all_sub_departments_in(department)).Return(sub_departments);
             };
 
             because b = () =>

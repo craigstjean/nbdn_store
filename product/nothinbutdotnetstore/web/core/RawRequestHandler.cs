@@ -1,6 +1,7 @@
 using System;
 using System.Web;
 using nothinbutdotnetstore.infrastructure;
+using nothinbutdotnetstore.infrastructure.containers;
 
 namespace nothinbutdotnetstore.web.core
 {
@@ -9,9 +10,8 @@ namespace nothinbutdotnetstore.web.core
         readonly FrontController front_controller;
         readonly RequestFactory request_factory;
 
-        [Obsolete]
-        public RawRequestHandler() : this(new DefaultFrontController(null),
-                                          new DefaultRequestFactory(new DefaultMapperRegistry(null)))
+        public RawRequestHandler() : this(Container.container_resolver().an<FrontController>(),
+			Container.container_resolver().an<RequestFactory>())
         {
         }
 

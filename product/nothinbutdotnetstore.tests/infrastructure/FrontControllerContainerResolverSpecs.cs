@@ -3,23 +3,24 @@
  using developwithpassion.bdd.harnesses.mbunit;
  using developwithpassion.bdddoc.core;
  using nothinbutdotnetstore.infrastructure.containers;
+ using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.tests.infrastructure
  {   
- 	public class ContainerResolverSpecs
+ 	public class FrontControllerContainerResolverSpecs
  	{
  		public abstract class concern : observations_for_a_sut_with_a_contract<ContainerResolver,
- 		                                	SqlConnectionContainerResolver>
+ 		                                	FrontControllerContainerResolver>
  		{
         
  		}
 
- 		[Concern(typeof(SqlConnectionContainerResolver))]
- 		public class when_asking_container_resolver_to_resolve_a_sql_connection : concern
+ 		[Concern(typeof(FrontControllerContainerResolver))]
+ 		public class when_asking_container_resolver_to_resolve_a_front_controller : concern
  		{
  			context c = () =>
  			{
- 				provide_a_basic_sut_constructor_argument("Data Source=MSSQL1;Database=AdventureWorks;Integrated Security=true;");
+ 				the_dependency<CommandRegistry>();
  			};
 
  			because b = () =>
@@ -28,9 +29,9 @@ namespace nothinbutdotnetstore.tests.infrastructure
  			};
 
         
- 			it should_return_a_new_sql_connection = () =>
+ 			it should_return_a_front_controller = () =>
  			{
- 				result.should_be_an_instance_of<SqlConnection>();
+ 				result.should_be_an_instance_of<FrontController>();
  			};
 
  			static object result;

@@ -30,7 +30,7 @@ namespace nothinbutdotnetstore.tests.web
                 catalog_tasks = the_dependency<CatalogTasks>();
 
                 request.Stub(x => x.map<Department>()).Return(department);
-                catalog_tasks.Stub(x => x.get_all_products_in_department(department)).Return(products);
+                catalog_tasks.Stub(x => x.get_all_products_in(department)).Return(products);
             };
 
             because b = () =>

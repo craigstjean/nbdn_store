@@ -55,7 +55,8 @@
     <Compile Include="infrastructure\containers\custom\CustomContainerFramework.cs" />
     <Compile Include="infrastructure\containers\custom\ResolverException.cs" />
     <Compile Include="infrastructure\containers\custom\ResolverNotRegisteredException.cs" />
-    <Compile Include="infrastructure\containers\SqlConnectionContainerResolver.cs" />
+    <Compile Include="infrastructure\containers\FrontControllerContainerResolver.cs" />
+    <Compile Include="infrastructure\containers\RequestFactoryContainerResolver.cs" />
     <Compile Include="infrastructure\DefaultMapperRegistry.cs" />
     <Compile Include="infrastructure\Mapper.cs" />
     <Compile Include="infrastructure\MapperRegistry.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="model\Product.cs" />
     <Compile Include="tasks\Startup.cs" />
+    <Compile Include="tasks\stubs\StubCartTasks.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
     <Compile Include="web\application\CartManager.cs" />
     <Compile Include="web\application\DepartmentNameParser.cs" />
@@ -74,9 +76,9 @@
     <Compile Include="web\application\PayloadKeys.cs" />
     <Compile Include="web\application\ViewMainDepartments.cs" />
     <Compile Include="web\application\ViewProductsInDepartment.cs" />
-    <Compile Include="web\application\ViewSubDepartmentsInDepartment.cs" />
+    <Compile Include="web\application\ViewSubDepartments.cs" />
     <Compile Include="web\application\AddProductToCart.cs" />
-    <Compile Include="web\CartItem.cs" />
+    <Compile Include="model\CartItem.cs" />
     <Compile Include="web\core\ApplicationCommand.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="web\core\RequestFactory.cs" />
     <Compile Include="web\core\ResponseEngine.cs" />
     <Compile Include="web\application\mappers\ProductMapper.cs" />
+    <Compile Include="web\core\stubs\StubResponseEngine.cs" />
     <Compile Include="WelcomeGenerator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
