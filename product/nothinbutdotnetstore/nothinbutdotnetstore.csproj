@@ -83,11 +83,17 @@
     <Compile Include="infrastructure\MapperRegistry.cs" />
     <Compile Include="infrastructure\MapperType.cs" />
     <Compile Include="infrastructure\MissingMapper.cs" />
+    <Compile Include="infrastructure\Command.cs" />
+    <Compile Include="tasks\initialization\ConfigureApplicationCommands.cs" />
+    <Compile Include="tasks\initialization\ConfigureMappers.cs" />
     <Compile Include="tasks\DefaultCartTasks.cs" />
     <Compile Include="model\Department.cs" />
     <Compile Include="tasks\CartTasks.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="model\Product.cs" />
+    <Compile Include="tasks\initialization\ConfigureCoreServices.cs" />
+    <Compile Include="tasks\initialization\ConfigureServiceLayer.cs" />
+    <Compile Include="tasks\initialization\StartupCommand.cs" />
     <Compile Include="tasks\Startup.cs" />
     <Compile Include="tasks\stubs\StubCartTasks.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
