@@ -66,6 +66,7 @@
     <Compile Include="tasks\CartTasks.cs" />
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="model\Product.cs" />
+    <Compile Include="tasks\Startup.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
     <Compile Include="web\application\CartManager.cs" />
     <Compile Include="web\application\DepartmentNameParser.cs" />
