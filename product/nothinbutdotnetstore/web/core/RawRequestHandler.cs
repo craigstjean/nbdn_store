@@ -10,7 +10,7 @@ namespace nothinbutdotnetstore.web.core
         readonly RequestFactory request_factory;
 
         [Obsolete]
-        public RawRequestHandler() : this(new DefaultFrontController(),
+        public RawRequestHandler() : this(new DefaultFrontController(null),
                                           new DefaultRequestFactory(new DefaultMapperRegistry(null)))
         {
         }

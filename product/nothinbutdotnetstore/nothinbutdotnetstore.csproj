@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="infrastructure\containers\Container.cs" />
+    <Compile Include="infrastructure\containers\ContainerFramework.cs" />
     <Compile Include="infrastructure\DefaultMapperRegistry.cs" />
     <Compile Include="infrastructure\Mapper.cs" />
     <Compile Include="infrastructure\MapperRegistry.cs" />
