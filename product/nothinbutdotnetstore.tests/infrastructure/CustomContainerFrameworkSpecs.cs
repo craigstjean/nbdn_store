@@ -73,5 +73,37 @@ namespace nothinbutdotnetstore.tests.infrastructure
 
             static IDictionary<Type, ContainerResolver> resolvers;
         }
+
+        [Concern(typeof (CustomContainerFramework))]
+        public class when_the_resolver_for_a_type_throws_an_exception_during_resolution : concern
+        {
+            context c = () =>
+            {
+                resolvers = new Dictionary<Type, ContainerResolver>();
+                inner_exception = new Exception();
+                connection_resolver = an<ContainerResolver>();
+                resolvers.Add(typeof (IDbConnection), connection_resolver);
+                provide_a_basic_sut_constructor_argument(resolvers);
+
+                connection_resolver.Stub(x => x.resolve()).Throw(inner_exception);
+            };
+
+            because b = () =>
+            {
+                doing(() => sut.an<IDbConnection>());
+            };
+
+
+            it should_throw_a_resolver_exception_that_provides_access_to_the_actual_exception_that_was_thrown = () =>
+            {
+                var exception = exception_thrown_by_the_sut.should_be_an_instance_of<ResolverException>();
+                exception .type_that_could_not_be_resolved.should_be_equal_to(typeof(IDbConnection));
+                exception.InnerException.should_be_equal_to(inner_exception);
+            };
+
+            static IDictionary<Type, ContainerResolver> resolvers;
+            static Exception inner_exception;
+            static ContainerResolver connection_resolver;
+        }
     }
 }

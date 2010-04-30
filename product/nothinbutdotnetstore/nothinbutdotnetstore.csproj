@@ -53,6 +53,7 @@
     <Compile Include="infrastructure\containers\ContainerFramework.cs" />
     <Compile Include="infrastructure\containers\ContainerResolver.cs" />
     <Compile Include="infrastructure\containers\custom\CustomContainerFramework.cs" />
+    <Compile Include="infrastructure\containers\custom\ResolverException.cs" />
     <Compile Include="infrastructure\containers\custom\ResolverNotRegisteredException.cs" />
     <Compile Include="infrastructure\DefaultMapperRegistry.cs" />
     <Compile Include="infrastructure\Mapper.cs" />
