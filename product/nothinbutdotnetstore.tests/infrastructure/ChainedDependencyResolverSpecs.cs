@@ -32,9 +32,9 @@ namespace nothinbutdotnetstore.tests.infrastructure
 
                 constructor_selector.Stub(x => x.get_applicable_constructor_on(typeof (SomeItemWithDependencies))).Return(
                     SomeItemWithDependencies.applicable_constructor());
-                container_framework.Stub(x => x.a<IDbConnection>()).Return(sql_connection);
-                container_framework.Stub(x => x.a<IDbCommand>()).Return(sql_command);
-                container_framework.Stub(x => x.a<ConnectionStringSettings>()).Return(connection_settings);
+                container_framework.Stub(x => x.a(typeof(IDbConnection))).Return(sql_connection);
+                container_framework.Stub(x => x.a(typeof(IDbCommand))).Return(sql_command);
+                container_framework.Stub(x => x.a(typeof(ConnectionStringSettings))).Return(connection_settings);
 
                 provide_a_basic_sut_constructor_argument(typeof (SomeItemWithDependencies));
             };
@@ -82,7 +82,7 @@ namespace nothinbutdotnetstore.tests.infrastructure
         public static ConstructorInfo applicable_constructor()
         {
             return typeof (SomeItemWithDependencies)
-                .GetType().GetConstructors()
+                .GetConstructors()
                 .OrderByDescending(x => x.GetParameters().Count()).First();
         }
     }
