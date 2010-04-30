@@ -14,21 +14,26 @@ namespace nothinbutdotnetstore.infrastructure.containers.custom
 
         public Dependency a<Dependency>()
         {
-            ensure_resolver_is_registered_for<Dependency>();
+            return (Dependency) a(typeof (Dependency));
+        }
+
+        public object a(Type dependency)
+        {
+            ensure_resolver_is_registered_for(dependency);
             try
             {
-                return (Dependency) resolvers[typeof (Dependency)].resolve();
+                return resolvers[dependency].resolve();
             }
             catch (Exception e)
             {
-                throw new ResolverException(typeof (Dependency), e);
+                throw new ResolverException(dependency, e);
             }
         }
 
-        void ensure_resolver_is_registered_for<Dependency>()
+        void ensure_resolver_is_registered_for(Type dependency)
         {
-            if (! this.resolvers.ContainsKey(typeof (Dependency)))
-                throw new ResolverNotRegisteredException(typeof (Dependency));
+            if (! this.resolvers.ContainsKey(dependency))
+                throw new ResolverNotRegisteredException(dependency);
         }
     }
 }
