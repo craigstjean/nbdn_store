@@ -12,23 +12,23 @@ namespace nothinbutdotnetstore.infrastructure.containers.custom
             this.resolvers = resolvers;
         }
 
-        public TDependency an<TDependency>()
+        public Dependency an<Dependency>()
         {
-            ensure_resolver_is_registered_for<TDependency>();
+            ensure_resolver_is_registered_for<Dependency>();
             try
             {
-                return (TDependency) resolvers[typeof (TDependency)].resolve();
+                return (Dependency) resolvers[typeof (Dependency)].resolve();
             }
             catch (Exception e)
             {
-                throw new ResolverException(typeof (TDependency), e);
+                throw new ResolverException(typeof (Dependency), e);
             }
         }
 
-        void ensure_resolver_is_registered_for<TDependency>()
+        void ensure_resolver_is_registered_for<Dependency>()
         {
-            if (! this.resolvers.ContainsKey(typeof (TDependency)))
-                throw new ResolverNotRegisteredException(typeof (TDependency));
+            if (! this.resolvers.ContainsKey(typeof (Dependency)))
+                throw new ResolverNotRegisteredException(typeof (Dependency));
         }
     }
 }
