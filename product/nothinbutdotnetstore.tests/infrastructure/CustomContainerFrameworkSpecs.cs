@@ -16,6 +16,13 @@ namespace nothinbutdotnetstore.tests.infrastructure
         public abstract class concern : observations_for_a_sut_with_a_contract<ContainerFramework,
                                             CustomContainerFramework>
         {
+            context c = () =>
+            {
+                resolvers = new Dictionary<Type, ContainerResolver>();
+                provide_a_basic_sut_constructor_argument(resolvers);
+            };
+
+            protected static IDictionary<Type, ContainerResolver> resolvers;
         }
 
         [Concern(typeof (CustomContainerFramework))]
@@ -27,10 +34,8 @@ namespace nothinbutdotnetstore.tests.infrastructure
                 connection_resolver = an<ContainerResolver>();
                 connection_resolver.Stub(x => x.resolve()).Return(connection);
 
-                resolvers = new Dictionary<Type, ContainerResolver>();
                 resolvers.Add(typeof (IDbConnection), connection_resolver);
 
-                provide_a_basic_sut_constructor_argument(resolvers);
             };
 
             because b = () =>
@@ -46,19 +51,12 @@ namespace nothinbutdotnetstore.tests.infrastructure
 
             static IDbConnection result;
             static SqlConnection connection;
-            static IDictionary<Type, ContainerResolver> resolvers;
             static ContainerResolver connection_resolver;
         }
 
         [Concern(typeof (CustomContainerFramework))]
         public class when_attempting_to_get_a_dependency_and_it_does_not_have_the_resolver_for_that_dependency : concern
         {
-            context c = () =>
-            {
-                resolvers = new Dictionary<Type, ContainerResolver>();
-                provide_a_basic_sut_constructor_argument(resolvers);
-            };
-
             because b = () =>
             {
                 doing(() => sut.an<IDbConnection>());
@@ -68,10 +66,9 @@ namespace nothinbutdotnetstore.tests.infrastructure
             it should_throw_a_resolver_not_registered_exception = () =>
             {
                 exception_thrown_by_the_sut.should_be_an_instance_of<ResolverNotRegisteredException>()
-                    .type_that_has_no_resolver.should_be_equal_to(typeof(IDbConnection));
+                    .type_that_has_no_resolver.should_be_equal_to(typeof (IDbConnection));
             };
 
-            static IDictionary<Type, ContainerResolver> resolvers;
         }
 
         [Concern(typeof (CustomContainerFramework))]
@@ -79,11 +76,9 @@ namespace nothinbutdotnetstore.tests.infrastructure
         {
             context c = () =>
             {
-                resolvers = new Dictionary<Type, ContainerResolver>();
                 inner_exception = new Exception();
                 connection_resolver = an<ContainerResolver>();
                 resolvers.Add(typeof (IDbConnection), connection_resolver);
-                provide_a_basic_sut_constructor_argument(resolvers);
 
                 connection_resolver.Stub(x => x.resolve()).Throw(inner_exception);
             };
@@ -97,11 +92,10 @@ namespace nothinbutdotnetstore.tests.infrastructure
             it should_throw_a_resolver_exception_that_provides_access_to_the_actual_exception_that_was_thrown = () =>
             {
                 var exception = exception_thrown_by_the_sut.should_be_an_instance_of<ResolverException>();
-                exception .type_that_could_not_be_resolved.should_be_equal_to(typeof(IDbConnection));
+                exception.type_that_could_not_be_resolved.should_be_equal_to(typeof (IDbConnection));
                 exception.InnerException.should_be_equal_to(inner_exception);
             };
 
-            static IDictionary<Type, ContainerResolver> resolvers;
             static Exception inner_exception;
             static ContainerResolver connection_resolver;
         }
