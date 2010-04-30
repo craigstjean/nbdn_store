@@ -74,6 +74,7 @@
     <Compile Include="infrastructure\ContainerSpecs.cs" />
     <Compile Include="infrastructure\CustomContainerFrameworkSpecs.cs" />
     <Compile Include="infrastructure\DefaultMapperRegistrySpecs.cs" />
+    <Compile Include="tasks\StartupSpecs.cs" />
     <Compile Include="utility\empty_test_fixture_for_test_driven.cs" />
     <Compile Include="utility\ObjectMother.cs" />
     <Compile Include="web\AddProductToCartSpecs.cs" />
