@@ -5,31 +5,30 @@ namespace nothinbutdotnetstore.infrastructure.containers.custom
 {
     public class CustomContainerFramework : ContainerFramework
     {
-        readonly IDictionary<Type, ContainerResolver> Resolvers;
+        IDictionary<Type, ContainerResolver> resolvers;
 
         public CustomContainerFramework(IDictionary<Type, ContainerResolver> resolvers)
         {
-            Resolvers = resolvers;
+            this.resolvers = resolvers;
         }
 
         public TDependency an<TDependency>()
         {
-            ContainerResolver resolver;
-
-            if (!Resolvers.TryGetValue(typeof (TDependency), out resolver))
-            {
-                throw new ResolverNotRegisteredException(typeof(TDependency));
-            }
-
+            ensure_resolver_is_registered_for<TDependency>();
             try
             {
-                return (TDependency)resolver.resolve(); 
+                return (TDependency) resolvers[typeof (TDependency)].resolve();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                throw new ResolverException(typeof(TDependency), e);
+                throw new ResolverException(typeof (TDependency), e);
             }
-               
+        }
+
+        void ensure_resolver_is_registered_for<TDependency>()
+        {
+            if (! this.resolvers.ContainsKey(typeof (TDependency)))
+                throw new ResolverNotRegisteredException(typeof (TDependency));
         }
     }
 }
