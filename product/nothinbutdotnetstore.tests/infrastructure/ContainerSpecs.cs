@@ -1,12 +1,10 @@
-#region
-
 using System;
+using System.Data;
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdddoc.core;
 using nothinbutdotnetstore.infrastructure.containers;
-
-#endregion
+using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.tests.infrastructure
 {
@@ -21,7 +19,7 @@ namespace nothinbutdotnetstore.tests.infrastructure
         {
             context c = () =>
             {
-                container_framework = an<IContainerFramework>();
+                container_framework = an<ContainerFramework>();
                 resolver = () => container_framework;
                 change(() => Container.container_resolver).to(resolver);
             };
@@ -36,9 +34,9 @@ namespace nothinbutdotnetstore.tests.infrastructure
                 result.should_be_equal_to(container_framework);
             };
 
-            static IContainerFramework result;
-            static IContainerFramework container_framework;
-            static Func<IContainerFramework> resolver;
+            static ContainerFramework result;
+            static ContainerFramework container_framework;
+            static Func<ContainerFramework> resolver;
         }
     }
 }

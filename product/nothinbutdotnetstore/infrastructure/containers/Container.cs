@@ -1,19 +1,16 @@
-#region
 
 using System;
-
-#endregion
 
 namespace nothinbutdotnetstore.infrastructure.containers
 {
     public class Container
     {
-        public static Func<IContainerFramework> container_resolver = delegate
+        public static Func<ContainerFramework> container_resolver = delegate
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("You have forgotten to configure a container framework resolver");
         };
 
-        public static IContainerFramework resolve
+        public static ContainerFramework resolve
         {
             get { return container_resolver(); }
         }
