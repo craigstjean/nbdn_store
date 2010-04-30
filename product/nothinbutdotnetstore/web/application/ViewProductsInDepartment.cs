@@ -17,7 +17,7 @@ namespace nothinbutdotnetstore.web.application
 
         public void process(Request request)
         {
-            response_engine.display(catalog_tasks.get_all_products_in_department(request.map<Department>()));
+            response_engine.display(catalog_tasks.get_all_products_in(request.map<Department>()));
         }
     }
 }

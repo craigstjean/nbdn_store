@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using nothinbutdotnetstore.web;
+using nothinbutdotnetstore.model;
 using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.tasks

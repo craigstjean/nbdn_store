@@ -1,4 +1,3 @@
- 
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdddoc.core;
@@ -27,7 +26,7 @@ namespace nothinbutdotnetstore.tests.tasks
 
             it should_be_able_to_access_key_application_services = () =>
             {
-                Container.resolve.an<FrontController>().should_be_an_instance_of<DefaultFrontController>();
+                Container.resolve.a<FrontController>().should_be_an_instance_of<DefaultFrontController>();
             };
         }
     }

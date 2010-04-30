@@ -4,7 +4,6 @@ using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdddoc.core;
 using nothinbutdotnetstore.infrastructure.containers;
-using nothinbutdotnetstore.web.core;
 
 namespace nothinbutdotnetstore.tests.infrastructure
 {

@@ -12,12 +12,12 @@ namespace nothinbutdotnetstore.tasks.stubs
             return Enumerable.Range(1, 100).Select(x => new Department {name = x.ToString("Department 0")});
         }
 
-        public IEnumerable<Department> get_all_sub_departments_in_department(Department department)
+        public IEnumerable<Department> get_all_sub_departments_in(Department department)
         {
-            return Enumerable.Range(100, 10).Select(x => new Department {name = x.ToString(department + ", SubDepartment 0 ")});
+            return Enumerable.Range(100, 10).Select(x => new Department {name = string.Format("{0}, Sub Department {1}", department.name, x)});
         }
 
-    	public IEnumerable<Product> get_all_products_in_department(Department department)
+    	public IEnumerable<Product> get_all_products_in(Department department)
     	{
     		return Enumerable.Range(1000, 50).Select(x => new Product {Name = x.ToString("product 0")});
     	}

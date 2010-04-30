@@ -11,7 +11,7 @@ using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.tests.infrastructure
 {
-    public class CustomDependencyFrameworkSpecs
+    public class CustomContainerFrameworkSpecs
     {
         public abstract class concern : observations_for_a_sut_with_a_contract<ContainerFramework,
                                             CustomContainerFramework>
@@ -40,7 +40,7 @@ namespace nothinbutdotnetstore.tests.infrastructure
 
             because b = () =>
             {
-                result = sut.an<IDbConnection>();
+                result = sut.a<IDbConnection>();
             };
 
 
@@ -59,7 +59,7 @@ namespace nothinbutdotnetstore.tests.infrastructure
         {
             because b = () =>
             {
-                doing(() => sut.an<IDbConnection>());
+                doing(() => sut.a<IDbConnection>());
             };
 
 
@@ -85,7 +85,7 @@ namespace nothinbutdotnetstore.tests.infrastructure
 
             because b = () =>
             {
-                doing(() => sut.an<IDbConnection>());
+                doing(() => sut.a<IDbConnection>());
             };
 
 

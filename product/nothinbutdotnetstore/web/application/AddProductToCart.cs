@@ -1,3 +1,4 @@
+using nothinbutdotnetstore.model;
 using nothinbutdotnetstore.tasks;
 using nothinbutdotnetstore.web.core;
 

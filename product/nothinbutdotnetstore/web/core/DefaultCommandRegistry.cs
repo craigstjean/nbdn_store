@@ -12,6 +12,7 @@ namespace nothinbutdotnetstore.web.core
             this.all_commands = all_commands;
         }
 
+
         public RequestCommand get_command_that_can_handle(Request request)
         {
             return all_commands.FirstOrDefault(x => x.can_handle(request))

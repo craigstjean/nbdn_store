@@ -47,6 +47,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thirdparty\developwithpassion.commons\developwithpassion.commons.core.infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\thirdparty\log4net\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="MbUnit.Framework, Version=2.4.2.130, Culture=neutral, PublicKeyToken=5e72ecd30bc408d5">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thirdparty\mbunit\MbUnit.Framework.dll</HintPath>
@@ -56,6 +60,7 @@
       <HintPath>..\..\thirdparty\rhino.mocks\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -71,9 +76,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="examples\CalculatorSpecs.cs" />
+    <Compile Include="infrastructure\ChainedDependencyResolverSpecs.cs" />
+    <Compile Include="infrastructure\FrontControllerContainerResolverSpecs.cs" />
     <Compile Include="infrastructure\ContainerSpecs.cs" />
     <Compile Include="infrastructure\CustomContainerFrameworkSpecs.cs" />
     <Compile Include="infrastructure\DefaultMapperRegistrySpecs.cs" />
+    <Compile Include="infrastructure\Log4NetLoggingFrameworkSpecs.cs" />
+    <Compile Include="infrastructure\LogSpecs.cs" />
+    <Compile Include="infrastructure\RequestFactoryContainerResolverSpecs.cs" />
+    <Compile Include="infrastructure\TextWriterLoggingFrameworkSpecs.cs" />
     <Compile Include="tasks\StartupSpecs.cs" />
     <Compile Include="utility\empty_test_fixture_for_test_driven.cs" />
     <Compile Include="utility\ObjectMother.cs" />

@@ -68,5 +68,31 @@ namespace nothinbutdotnetstore.tests.web
              static string key_name;
              static NameValueCollection collection;
          }
+
+		 [Concern(typeof(PayloadKey<>))]
+		 public class when_mapping_from_a_missing_value : concern
+		 {
+		 	context c = () =>
+		 	{
+		 		key_name = "abc";
+		 		collection = new NameValueCollection();
+
+				provide_a_basic_sut_constructor_argument(key_name);
+		 	};
+
+		 	because b = () =>
+		 	{
+		 		result = sut.map_from(collection);
+		 	};
+
+		 	it should_return_the_default_value_of_the_target_type = () =>
+		 	{
+		 		result.should_be_equal_to(0);
+		 	};
+
+		 	static int result;
+		 	static NameValueCollection collection;
+		 	static string key_name;
+		 }
      }
  }

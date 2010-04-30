@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using nothinbutdotnetstore.web;
+using nothinbutdotnetstore.model;
 
 namespace nothinbutdotnetstore.tasks
 {

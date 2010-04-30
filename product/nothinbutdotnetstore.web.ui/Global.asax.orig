@@ -1,10 +1,18 @@
 <%@ Application Language="C#" %>
+<<<<<<< HEAD
+<%@ Import Namespace="nothinbutdotnetstore.tasks" %>
+=======
 <%@ Import Namespace="nothinbutdotnetstore.tasks"%>
+>>>>>>> 062b5c733f1ed08de4223bde5bea48903a3f6606
 <script runat="server">
 
         private void Application_Start(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+          Startup.run();
+=======
         	Startup.run();
+>>>>>>> 062b5c733f1ed08de4223bde5bea48903a3f6606
         }
 
 

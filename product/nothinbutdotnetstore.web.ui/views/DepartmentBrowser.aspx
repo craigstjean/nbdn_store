@@ -8,12 +8,12 @@ Inherits="System.Web.UI.Page" MasterPageFile="Store.master" %>
     <p class="ListHead">Select An Department</p>
 
             <table>            
-		     <% foreach (var department in ((IEnumerable<Department>)Context.Items["main_departments"]))
+		     <% foreach (var department in ((IEnumerable<Department>)Context.Items["view_model"]))
 {
  %> 
         	<tr class="ListItem">
                		 <td>                     
-                      <a href="SubDepartment.store?<%=PayloadKeys.department.name %>=<%= department.name %>"><%= department.name %></a>
+                      <a href="ViewSubDepartments.store?<%=PayloadKeys.department.name %>=<%= department.name %>"><%= department.name %></a>
                 	</td>
            	 </tr>        
            	 <%

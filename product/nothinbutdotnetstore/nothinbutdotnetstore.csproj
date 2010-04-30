@@ -31,6 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\thirdparty\castle\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\thirdparty\castle\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="developwithpassion.bdd, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thirdparty\developwithpassion.bdd\developwithpassion.bdd.dll</HintPath>
@@ -38,6 +46,10 @@
     <Reference Include="developwithpassion.bdddoc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thirdparty\developwithpassion.bdddoc\developwithpassion.bdddoc.exe</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\thirdparty\log4net\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -52,10 +64,21 @@
     <Compile Include="infrastructure\containers\Container.cs" />
     <Compile Include="infrastructure\containers\ContainerFramework.cs" />
     <Compile Include="infrastructure\containers\ContainerResolver.cs" />
+    <Compile Include="infrastructure\containers\custom\ChainedDependencyResolver.cs" />
+    <Compile Include="infrastructure\containers\custom\ConstructorSelector.cs" />
     <Compile Include="infrastructure\containers\custom\CustomContainerFramework.cs" />
     <Compile Include="infrastructure\containers\custom\ResolverException.cs" />
     <Compile Include="infrastructure\containers\custom\ResolverNotRegisteredException.cs" />
+    <Compile Include="infrastructure\containers\SimpleContainerResolver.cs" />
     <Compile Include="infrastructure\DefaultMapperRegistry.cs" />
+    <Compile Include="infrastructure\logging\custom\TextWriterLoggingFramework.cs" />
+    <Compile Include="infrastructure\logging\custom\TextWriterLoggingFrameworkFactory.cs" />
+    <Compile Include="infrastructure\logging\Log.cs" />
+    <Compile Include="infrastructure\logging\log4net\Log4NetLoggingFactory.cs" />
+    <Compile Include="infrastructure\logging\log4net\Log4NetLoggingFramework.cs" />
+    <Compile Include="infrastructure\logging\LoggingFramework.cs" />
+    <Compile Include="infrastructure\logging\LoggingFrameworkFactory.cs" />
+    <Compile Include="infrastructure\logging\MethodInvocationLogger.cs" />
     <Compile Include="infrastructure\Mapper.cs" />
     <Compile Include="infrastructure\MapperRegistry.cs" />
     <Compile Include="infrastructure\MapperType.cs" />
@@ -66,6 +89,7 @@
     <Compile Include="tasks\CatalogTasks.cs" />
     <Compile Include="model\Product.cs" />
     <Compile Include="tasks\Startup.cs" />
+    <Compile Include="tasks\stubs\StubCartTasks.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
     <Compile Include="web\application\CartManager.cs" />
     <Compile Include="web\application\DepartmentNameParser.cs" />
@@ -73,9 +97,9 @@
     <Compile Include="web\application\PayloadKeys.cs" />
     <Compile Include="web\application\ViewMainDepartments.cs" />
     <Compile Include="web\application\ViewProductsInDepartment.cs" />
-    <Compile Include="web\application\ViewSubDepartmentsInDepartment.cs" />
+    <Compile Include="web\application\ViewSubDepartments.cs" />
     <Compile Include="web\application\AddProductToCart.cs" />
-    <Compile Include="web\CartItem.cs" />
+    <Compile Include="model\CartItem.cs" />
     <Compile Include="web\core\ApplicationCommand.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\DefaultCommandRegistry.cs" />
@@ -93,7 +117,11 @@
     <Compile Include="web\core\RequestFactory.cs" />
     <Compile Include="web\core\ResponseEngine.cs" />
     <Compile Include="web\application\mappers\ProductMapper.cs" />
+    <Compile Include="web\core\stubs\StubResponseEngine.cs" />
     <Compile Include="WelcomeGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="infrastructure\containers\castle\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
