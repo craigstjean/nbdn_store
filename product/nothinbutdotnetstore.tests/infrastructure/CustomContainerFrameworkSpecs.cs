@@ -49,5 +49,29 @@ namespace nothinbutdotnetstore.tests.infrastructure
             static IDictionary<Type, ContainerResolver> resolvers;
             static ContainerResolver connection_resolver;
         }
+
+        [Concern(typeof (CustomContainerFramework))]
+        public class when_attempting_to_get_a_dependency_and_it_does_not_have_the_resolver_for_that_dependency : concern
+        {
+            context c = () =>
+            {
+                resolvers = new Dictionary<Type, ContainerResolver>();
+                provide_a_basic_sut_constructor_argument(resolvers);
+            };
+
+            because b = () =>
+            {
+                doing(() => sut.an<IDbConnection>());
+            };
+
+
+            it should_throw_a_resolver_not_registered_exception = () =>
+            {
+                exception_thrown_by_the_sut.should_be_an_instance_of<ResolverNotRegisteredException>()
+                    .type_that_has_no_resolver.should_be_equal_to(typeof(IDbConnection));
+            };
+
+            static IDictionary<Type, ContainerResolver> resolvers;
+        }
     }
 }
