@@ -1,6 +1,8 @@
  
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Text;
 using developwithpassion.bdd.contexts;
 using developwithpassion.bdd.harnesses.mbunit;
 using developwithpassion.bdddoc.core;
@@ -25,17 +27,27 @@ namespace nothinbutdotnetstore.tests.tasks
 
             it should_have_the_required_constructor_for_the_pipeline_process = () =>
             {
-                typeof (StartupCommand).Assembly
-                    .GetTypes()
-                    .Where(is_a_startup_command)
-                    .ensure_all_follow(startup_convention);
+            	var startup_commands = typeof (StartupCommand).Assembly
+            		.GetTypes()
+            		.Where(is_a_startup_command);
+
+            	var exceptions = startup_commands.exceptions_for(startup_convention);
+				if (exceptions.Count() == 0)
+				{
+					return;
+				}
+
+				var exception_messages = new StringBuilder();
+				foreach (var exception in exceptions)
+				{
+					exception_messages.AppendLine(exception.Message);
+				}
+				throw new ConventionNotFollowedException(exception_messages.ToString());
             };
 
             static void startup_convention(Type obj)
             {
-                var constructor = obj.GetConstructors()[0];
-                var argument =constructor.GetParameters().FirstOrDefault();
-                
+            	var argument = obj.GetConstructors()[0].GetParameters().FirstOrDefault();
                 if (argument == null || argument.ParameterType != typeof(IDictionary<Type,ContainerResolver>)) throw  new ConventionNotFollowedException(
                     "The type {0} does not follow the startup convention".format_using(obj.Name));
             }
