@@ -15,7 +15,6 @@ namespace nothinbutdotnetstore.tasks.initialization
         {
             this.resolvers = resolvers;
         }
-
         public void run()
         {
             resolvers.Add(typeof (LoggingFrameworkFactory), new SimpleContainerResolver(() => new TextWriterLoggingFrameworkFactory()));
