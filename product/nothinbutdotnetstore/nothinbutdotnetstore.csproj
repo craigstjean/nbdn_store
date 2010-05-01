@@ -94,6 +94,8 @@
     <Compile Include="tasks\initialization\ConfigureCoreServices.cs" />
     <Compile Include="tasks\initialization\ConfigureServiceLayer.cs" />
     <Compile Include="tasks\initialization\StartupCommand.cs" />
+    <Compile Include="tasks\initialization\StartupCommandMissingResolversConstructorException.cs" />
+    <Compile Include="tasks\Start.cs" />
     <Compile Include="tasks\Startup.cs" />
     <Compile Include="tasks\stubs\StubCartTasks.cs" />
     <Compile Include="tasks\stubs\StubCatalogTasks.cs" />
