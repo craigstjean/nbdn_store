@@ -7,9 +7,15 @@ using nothinbutdotnetstore.infrastructure.logging.custom;
 
 namespace nothinbutdotnetstore.tasks.initialization
 {
-    public class ConfigureCoreServices
+    public class ConfigureCoreServices : StartupCommand
     {
-        void run()
+        IDictionary<Type, ContainerResolver> resolvers;
+
+        public ConfigureCoreServices(IDictionary<Type, ContainerResolver> resolvers)
+        {
+            this.resolvers = resolvers;
+        }
+        public void run()
         {
             IDictionary<Type, ContainerResolver> resolvers = new Dictionary<Type, ContainerResolver>();
             resolvers.Add(typeof (LoggingFrameworkFactory), new SimpleContainerResolver(() => new TextWriterLoggingFrameworkFactory()));
