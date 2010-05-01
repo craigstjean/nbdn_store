@@ -1,7 +1,6 @@
 namespace nothinbutdotnetstore.infrastructure.containers
 {
-    public interface ContainerFramework
+    public interface IContainerFramework
     {
-        
     }
 }

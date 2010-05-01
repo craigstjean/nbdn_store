@@ -1,17 +1,21 @@
+#region
+
 using System;
+
+#endregion
 
 namespace nothinbutdotnetstore.infrastructure.containers
 {
     public class Container
     {
-        public static Func<ContainerFramework> container_resolver = delegate
+        public static Func<IContainerFramework> container_resolver = delegate
         {
             throw new NotImplementedException();
         };
 
-        public static ContainerFramework resolve
+        public static IContainerFramework resolve
         {
-            get { throw new NotImplementedException(); }
+            get { return container_resolver(); }
         }
     }
 }
